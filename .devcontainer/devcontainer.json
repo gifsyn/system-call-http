@@ -1,0 +1,42 @@
+{
+    "name": "System Call HTTP",
+    "dockerComposeFile": [
+        "./compose.dev.yml"
+    ],
+    "service": "workspace",
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=$HOME/.ssh,target=/home/vscode/.ssh,type=bind",
+        "source=$HOME/.gnupg,target=/home/vscode/.gnupg,type=bind"
+    ],
+    "postCreateCommand": [
+        "bash",
+        "-c",
+        "bash -x .devcontainer/postCreateCommand.sh"
+    ],
+    "containerEnv": {
+        "LANG": "C.UTF-8"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                // Docker
+                "ms-azuretools.vscode-containers",
+                "docker.docker",
+                "exiasr.hadolint",
+                // Git
+                "donjayamanne.githistory",
+                "mhutchie.git-graph",
+                // Others
+                "humao.rest-client"
+            ],
+            "settings": {
+                "remote.autoForwardPorts": false
+            }
+        }
+    },
+    "forwardPorts": [
+        // 8000,
+        // "pgadmin:8080"
+    ]
+}

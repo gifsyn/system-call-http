@@ -1,0 +1,27 @@
+FROM debian:stable-slim
+
+SHELL [ "/bin/bash", "-o", "pipefail", "-c" ]
+
+# hadolint ignore=DL3008
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    ca-certificates \
+    git \
+    openssh-client \
+    gpg gpg-agent pinentry-curses \
+    man-db manpages manpages-dev \
+    build-essential gcc cmake \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+ARG USERNAME=vscode
+RUN useradd --create-home $USERNAME --shell /bin/bash
+USER $USERNAME
+
+RUN mkdir -p "$HOME/.local/bin" && chmod +x "$HOME/.local/bin"
+
+# https://github.com/hadolint/hadolint
+RUN curl -LsSf https://github.com/hadolint/hadolint/releases/download/v2.14.0/hadolint-Linux-x86_64 -o "$HOME/.local/bin/hadolint" \
+    && chmod +x "$HOME/.local/bin/hadolint"
+
+WORKDIR /workspace

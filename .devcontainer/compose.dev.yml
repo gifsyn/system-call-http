@@ -1,0 +1,12 @@
+name: system-call-http
+services:
+  workspace:
+    image: system-call-http:dev
+    hostname: system-call-http
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile.dev
+    volumes:
+      - ..:/workspace
+    user: "vscode"
+    tty: true
