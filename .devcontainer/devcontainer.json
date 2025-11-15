@@ -24,10 +24,13 @@
                 "ms-azuretools.vscode-containers",
                 "docker.docker",
                 "exiasr.hadolint",
+                // C/C++
+                "ms-vscode.cpptools",
                 // Git
                 "donjayamanne.githistory",
                 "mhutchie.git-graph",
                 // Others
+                "Gruntfuggly.todo-tree",
                 "humao.rest-client"
             ],
             "settings": {

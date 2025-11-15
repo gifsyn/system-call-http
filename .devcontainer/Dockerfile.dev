@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     openssh-client \
     gpg gpg-agent pinentry-curses \
-    man-db manpages manpages-dev \
     build-essential gcc cmake \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
