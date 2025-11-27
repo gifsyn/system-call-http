@@ -1,0 +1,11 @@
+###
+POST http://localhost:8000/calc?query=2+10
+
+###
+POST http://localhost:8000/calc?query=-2+10
+
+###
+POST http://localhost:8000/calc?query=-10+2
+
+###
+POST http://localhost:8000/calc?query=100+200
